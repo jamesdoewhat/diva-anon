@@ -1,0 +1,2 @@
+[console_scripts]
+qd_metarl = qd_metarl.__main__:main

@@ -1,0 +1,85 @@
+# PyRibs
+# tensorboard==2.12.0  
+baselines @ git+https://github.com/openai/baselines.git@8e56dd#egg=baselines
+ribs @ git+https://github.com/icaros-usc/pyribs.git@3243bc1#egg=ribs
+# Alchemy
+dm_alchemy @ git+https://github.com/google-deepmind/dm_alchemy.git
+
+# Math
+numpy==1.22.1
+scipy==1.7.2
+scikit-learn==1.1.0
+
+# Misc from DSAGE
+gin-config==0.4.0
+
+# Jupyter lab
+jupyterlab==3.6.3
+jupyterlab_widgets==3.0.7
+ipywidgets==8.0.6
+ipympl
+
+# Others
+gymnasium==0.28.1
+matplotlib==3.7.0
+seaborn
+tqdm==4.64.1
+psutil
+numba
+
+# Debugging
+pyinstrument==3.3.0
+pytest==6.2.2
+pytest-cov==2.10.1
+
+# Dask
+dask==2.30.0
+distributed==2.30.0
+click==7.1.2  # Newer click causes error with dask scheduler.
+bokeh==2.2.3
+jupyter-server-proxy==1.5.0
+
+# Maze
+gym-minigrid==1.0.1
+stable-baselines3==2.0.0a5
+scikit-image==0.19.2
+
+# DIVA
+gym==0.25.1 # ==0.18.0
+gym[mujoco]==0.25.1 #==0.18.0
+mujoco-py==2.0.2.10
+# mujoco-py # ==0.5.7
+chardet==5.1.0
+mazelib==0.9.13
+# tensorflow
+xxhash
+umap-learn
+opencv-python
+moviepy
+
+# Logging
+wandb
+guppy3
+objgraph
+
+# DCD CarRacing environment
+pyglet==1.5.27  # Older version necessary for pyglet.gl classes
+box2d-py==2.3.5  
+gym[box2d]==0.25.1
+Box2D==2.3.2
+box2d-kengz==2.3.3
+pyvirtualdisplay
+geopandas==0.9.0  # Installs click 8.1.6, which conflicts with dask version.
+
+# DeepMind Alchemy
+absl-py
+dataclasses
+dm-env
+dm-env-rpc>=1.0.4
+dm-tree
+docker
+grpcio
+portpicker
+frozendict
+vpython  # For visualizer
+mayavi  # For visualizer

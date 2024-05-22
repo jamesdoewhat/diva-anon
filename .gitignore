@@ -1,0 +1,17 @@
+# Ignore pycache directories
+**/__pycache__
+
+# Ignore pyc files
+*.pyc
+
+# Ignore pyo files
+*.pyo
+
+# Ignore pytest cache
+.pytest_cache
+
+# Ignore mypy cache
+.mypy_cache
+
+# Ignore coverage reports
+.coverage

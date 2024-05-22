@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: qd_metarl
+Version: 0.0.0
+Summary: DIVA Project
+Home-page: anon-url
+Author: Anon
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: baselines@ git+https://github.com/openai/baselines.git@8e56dd#egg=baselines
+Requires-Dist: ribs@ git+https://github.com/icaros-usc/pyribs.git@3243bc1#egg=ribs
+Requires-Dist: dm_alchemy@ git+https://github.com/google-deepmind/dm_alchemy.git
+Requires-Dist: numpy==1.22.1
+Requires-Dist: scipy==1.7.2
+Requires-Dist: scikit-learn==1.1.0
+Requires-Dist: gin-config==0.4.0
+Requires-Dist: jupyterlab==3.6.3
+Requires-Dist: jupyterlab_widgets==3.0.7
+Requires-Dist: ipywidgets==8.0.6
+Requires-Dist: ipympl
+Requires-Dist: gymnasium==0.28.1
+Requires-Dist: matplotlib==3.7.0
+Requires-Dist: seaborn
+Requires-Dist: tqdm==4.64.1
+Requires-Dist: psutil
+Requires-Dist: numba
+Requires-Dist: pyinstrument==3.3.0
+Requires-Dist: pytest==6.2.2
+Requires-Dist: pytest-cov==2.10.1
+Requires-Dist: dask==2.30.0
+Requires-Dist: distributed==2.30.0
+Requires-Dist: click==7.1.2
+Requires-Dist: bokeh==2.2.3
+Requires-Dist: jupyter-server-proxy==1.5.0
+Requires-Dist: gym-minigrid==1.0.1
+Requires-Dist: stable-baselines3==2.0.0a5
+Requires-Dist: scikit-image==0.19.2
+Requires-Dist: gym==0.25.1
+Requires-Dist: gym[mujoco]==0.25.1
+Requires-Dist: mujoco-py==2.0.2.10
+Requires-Dist: chardet==5.1.0
+Requires-Dist: mazelib==0.9.13
+Requires-Dist: xxhash
+Requires-Dist: umap-learn
+Requires-Dist: opencv-python
+Requires-Dist: moviepy
+Requires-Dist: wandb
+Requires-Dist: guppy3
+Requires-Dist: objgraph
+Requires-Dist: pyglet==1.5.27
+Requires-Dist: box2d-py==2.3.5
+Requires-Dist: gym[box2d]==0.25.1
+Requires-Dist: Box2D==2.3.2
+Requires-Dist: box2d-kengz==2.3.3
+Requires-Dist: pyvirtualdisplay
+Requires-Dist: geopandas==0.9.0
+Requires-Dist: absl-py
+Requires-Dist: dataclasses
+Requires-Dist: dm-env
+Requires-Dist: dm-env-rpc>=1.0.4
+Requires-Dist: dm-tree
+Requires-Dist: docker
+Requires-Dist: grpcio
+Requires-Dist: portpicker
+Requires-Dist: frozendict
+Requires-Dist: vpython
+Requires-Dist: mayavi
+
+# QD-MetaRL
+
+## Setup
+
+These setup instructions were written for Ubuntu 20.04 with CUDA 12. 
+Ensure that you also have CUDA toolkit installed, as well as the latest version of Anaconda. 
+Additionally, we use virtual displays for certain environments, for which you will need to install Xvfb via:
+
+```bash
+sudo apt install xvfb
+```
+
+Clone repository:
+
+```bash
+git clone <anonrepo>
+```
+
+Upgrade pip if necessary (developed with version `22.3.1`):
+
+```bash
+pip install --upgrade pip
+``` 
+
+Install SWIG (required for `Box2D`), if not already installed (below is `Ubuntu`-specific command): 
+
+```bash
+sudo apt install swig
+
+```
+
+Run the following setup script to create a `conda` environment and to install the relevant dependencies:
+
+```bash
+. ./setup.sh
+```
+
+> __Note__: `mpi4py` is installed via `conda` before the rest of the requirements because
+pip was having trouble installing the package at the time of writing.
+`Tensorflow` is installed just before `mpi4py` because it is a required dependency.
+`Pytorch` installation via `pip` was raising all sorts of dependency errors, so
+we are using `conda` for now. The rest of the dependencies are then installed
+via `pip` using the last line.
+
+> __Note__: If you get the following error:
+> ```bash
+> AttributeError: module '_Box2D' has no attribute 'RAND_LIMIT_swigconstant'
+> ```
+> Then try: 
+> ```bash
+> pip uninstall box2d-py
+> pip install box2d-py
+> ```
